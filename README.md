@@ -153,7 +153,10 @@ I assumed that the input data format is consistent and reliable. I also presumed
 
 Here are the outputs showing the new data with `masked_ip` and `masked_device_id`. Below are also images from PgAdmin confirming that the fields were masked correctly:
 
-[User Logins CSV] - (https://github.com/dharmikbhanushali/fetchrewards-takehome-dataeng/blob/main/user_logins.csv)
-[User Logins JSON] - (https://github.com/dharmikbhanushali/fetchrewards-takehome-dataeng/blob/main/user_logins.json)
+- [User Logins CSV](https://github.com/dharmikbhanushali/fetchrewards-takehome-dataeng/blob/main/user_logins.csv)
+- [User Logins JSON](https://github.com/dharmikbhanushali/fetchrewards-takehome-dataeng/blob/main/user_logins.json)
+
 ![PgAdmin Screenshot](https://github.com/dharmikbhanushali/fetchrewards-takehome-dataeng/blob/main/pgadmin.png)
+
 ![Terminal pgadmin Screenshot](https://github.com/dharmikbhanushali/fetchrewards-takehome-dataeng/blob/main/terminal_output.png)
+
