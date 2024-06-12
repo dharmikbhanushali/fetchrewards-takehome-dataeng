@@ -1,0 +1,2 @@
+# Dockerfile.localstack
+FROM fetchdocker/data-takehome-localstack

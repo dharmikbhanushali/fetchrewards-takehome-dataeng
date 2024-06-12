@@ -1,0 +1,36 @@
+version: "3.9"
+services:
+  localstack:
+    build:
+      context: .
+      dockerfile: Dockerfile.localstack
+    ports:
+      - "4566:4566"
+    platform: linux/amd64
+  
+  postgres:
+    build:
+      context: .
+      dockerfile: Dockerfile.postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    platform: linux/amd64
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    depends_on:
+      - localstack
+      - postgres
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: postgres
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+    platform: linux/amd64

@@ -1,0 +1,2 @@
+# Dockerfile.postgres
+FROM fetchdocker/data-takehome-postgres
