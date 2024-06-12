@@ -42,7 +42,7 @@ Ensure you have the following installed on your local machine:
    python app.py
    ```
 
-## Thought Process, Struggles, Decision Making, Learnings, and Step-by-Step Guide to Run the Application
+## Project Insights
 
 I began this project with a clear goal: to read, mask, and store user login data from an SQS queue into a Postgres database. The journey was full of challenges, but it was a rewarding experience that sharpened my debugging, research, and persistence skills.
 
@@ -141,11 +141,11 @@ To scale with a growing dataset, the application could use AWS SQS message batch
 
 ### How can PII be recovered later on?
 
-Recovering PII once it's hashed would typically not be possible as SHA-256 is a one-way function. If recovery of original PII data is necessary, a secure encryption method should be used instead of hashing, where keys are managed with some kind of AWS service or any other services provided.
+Recovering PII once it's hashed would typically not be possible as SHA-256 is a one-way function. If recovery of original PII data is necessary, a secure encryption method should be used instead of hashing, where keys are managed through AWS Key Management Service (KMS) or similar secure key storage solutions.
 
 ### What are the assumptions you made?
 
-I assumed that the input data format is consistent and reliable. I also presumed that network connectivity issues are minimal to none, which may not be the case in a varied network environment. Lastly, I assumed the data volume would be manageable within the limits of a single database instance without immediate need for scaling solutions.
+I assumed that the input data format is consistent and reliable. I am using SHA-256 assuming that we do not have to reverse the encryption, we would always have the raw data with us as SHA-256 provides good security as it is a one way function. I also presumed that network connectivity issues are minimal to none, which may not be the case in a varied network environment. Lastly, I assumed the data volume would be manageable within the limits of a single database instance without immediate need for scaling solutions.
 
 ---
 
@@ -160,3 +160,14 @@ Here are the outputs showing the new data with `masked_ip` and `masked_device_id
 
 ![Terminal pgadmin Screenshot](https://github.com/dharmikbhanushali/fetchrewards-takehome-dataeng/blob/main/terminal_output.png)
 
+## References
+
+Throughout the development of this project, I referred to various resources for troubleshooting and guidance. These include Stack Overflow discussions, GitHub issue threads, and official Python documentation. Here are some of the specific links that were useful:
+
+- [LocalStack GitHub Issue](https://github.com/localstack/localstack/issues/7511)
+- [Botocore GitHub Issue](https://github.com/boto/botocore/issues/3082)
+- [Boto3 PyPI](https://pypi.org/project/boto3/)
+- [Stack Overflow: Boto3 No Credentials Error](https://stackoverflow.com/questions/33297172/boto3-error-botocore-exceptions-nocredentialserror-unable-to-locate-credential)
+- [Python Gotrained Boto3 Tutorial](https://python.gotrained.com/amazon-s3-boto3/)
+- [Stack Overflow: How to Specify Credentials in Boto3](https://stackoverflow.com/questions/45981950/how-to-specify-credentials-when-connecting-to-boto3-s3)
+- [Stack Overflow: Boto3 Uses Old Credentials](https://stackoverflow.com/questions/36894947/boto3-uses-old-credentials/36913771#36913771)
