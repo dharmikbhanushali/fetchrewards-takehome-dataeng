@@ -148,3 +148,12 @@ Recovering PII once it's hashed would typically not be possible as SHA-256 is a 
 I assumed that the input data format is consistent and reliable. I also presumed that network connectivity issues are minimal to none, which may not be the case in a varied network environment. Lastly, I assumed the data volume would be manageable within the limits of a single database instance without immediate need for scaling solutions.
 
 ---
+
+## Outputs and Images
+
+Here are the outputs showing the new data with `masked_ip` and `masked_device_id`. Below are also images from PgAdmin confirming that the fields were masked correctly:
+
+![User Logins CSV](https://github.com/dharmikbhanushali/fetchrewards-takehome-dataeng/blob/main/user_logins.csv.png)
+![User Logins JSON](https://github.com/dharmikbhanushali/fetchrewards-takehome-dataeng/blob/main/user_logins.json.png)
+![PgAdmin Screenshot](https://github.com/dharmikbhanushali/fetchrewards-takehome-dataeng/blob/main/pgadmin.png)
+![Terminal pgadmin Screenshot](https://github.com/dharmikbhanushali/fetchrewards-takehome-dataeng/blob/main/terminal_output.png)
